@@ -6,101 +6,131 @@
 <title>Sami Fishes &amp; Aquariums — Premium Fish &amp; Aquarium Store, Lahore</title>
 <meta name="description" content="Premium quality aquariums and ornamental fish. Aquarium accessories, filters, plants, and lights. Located in Lahore, Pakistan. Order on WhatsApp — Cash on Delivery available.">
 <meta property="og:title" content="Sami Fishes & Aquariums — Lahore">
-<meta property="og:description" content="Premium ornamental fish, aquariums, filters, plants & lights. Order on WhatsApp — COD, bank transfer, Easypaisa/JazzCash.">
+<meta property="og:description" content="Premium ornamental fish, aquariums, filters, plants & lights. Order on WhatsApp — COD, bank transfer, JazzCash.">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-     SAMI FISHES & AQUARIUMS — Online Store
-     Theme: deep aquatic blue + goldfish orange (from your logo)
+     SAMI FISHES & AQUARIUMS — design system v2
+     Generated with UI/UX Pro Max guidance:
+     - Rubik / Nunito Sans (e-commerce pairing)
+     - Dark aquatic glassmorphism, radius 16, ease(.16,1,.3,1)
+     - SVG icons, WCAG contrast, 44px touch targets
      ============================================================ */
   :root{
-    --deep:#06182e;
-    --deep2:#0a2342;
-    --card:#0e2d52;
+    --bg-deep:#04101F;
+    --bg-base:#071A30;
+    --card:#0D2A4D;
     --card2:#123761;
-    --line:rgba(120,180,255,.14);
-    --text:#eaf4ff;
-    --muted:#9db8d8;
-    --accent:#ff9f43;
-    --accent2:#ffb96b;
-    --aqua:#37c8f0;
-    --green:#39d98a;
+    --surface:rgba(255,255,255,.045);
+    --line:rgba(140,190,255,.15);
+    --text:#EAF3FF;
+    --muted:#A9C2DF;
+    --accent:#FFA149;
+    --accent-deep:#FF8C1A;
+    --accent-glow:rgba(255,161,73,.30);
+    --aqua:#3AC8F0;
+    --aqua-glow:rgba(58,200,240,.22);
+    --green:#34D98A;
     --radius:16px;
+    --ease:cubic-bezier(.16,1,.3,1);
     font-size:16px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
-    background:linear-gradient(180deg,var(--deep) 0%,var(--deep2) 60%,#071c33 100%);
+    font-family:'Nunito Sans',system-ui,-apple-system,sans-serif;
+    background:linear-gradient(180deg,var(--bg-deep) 0%,var(--bg-base) 55%,#051526 100%);
     color:var(--text);
     min-height:100vh;
+    line-height:1.5;
   }
+  h1,h2,h3,h4,h5,h6{font-family:'Rubik',sans-serif;letter-spacing:-.01em}
+  ::selection{background:var(--aqua);color:#04263B}
+  :focus-visible{outline:2px solid var(--aqua);outline-offset:2px;border-radius:6px}
+  button{cursor:pointer;font-family:inherit}
+  .ic{width:1.15em;height:1.15em;flex-shrink:0;vertical-align:-.18em}
   /* ---------- Header ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(6,24,46,.9);
-    backdrop-filter:blur(12px);
+    background:rgba(4,16,31,.82);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line);
   }
   .nav{
-    max-width:1200px;margin:0 auto;padding:.7rem 1.2rem;
+    max-width:1200px;margin:0 auto;padding:.65rem 1.2rem;
     display:flex;align-items:center;gap:1rem;
   }
   .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text)}
   .brand .logo{
-    width:44px;height:44px;border-radius:50%;
-    background:radial-gradient(circle at 35% 30%,#2ea7e0,#0a3a6b 70%);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.5rem;flex-shrink:0;
-    box-shadow:0 0 0 2px rgba(55,200,240,.35), 0 4px 14px rgba(0,0,0,.4);
+    width:46px;height:46px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%,#2EA7E0,#0A3A6B 72%);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    box-shadow:0 0 0 2px rgba(58,200,240,.35),0 4px 16px rgba(0,0,0,.45);
+    color:#FFD9A8;
   }
-  .brand h1{font-size:1.05rem;letter-spacing:.5px;line-height:1.15}
-  .brand small{display:block;color:var(--accent);font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
-  .nav-links{margin-left:auto;display:flex;gap:1.2rem;align-items:center}
-  .nav-links a{color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .2s}
+  .brand .logo svg{width:26px;height:26px}
+  .brand h1{font-size:1.02rem;font-weight:600;line-height:1.2}
+  .brand small{display:block;font-family:'Nunito Sans';color:var(--accent);font-size:.66rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+  .nav-links{margin-left:auto;display:flex;gap:1.15rem;align-items:center}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.94rem;font-weight:600;padding:.5rem 0;transition:color .2s var(--ease)}
   .nav-links a:hover{color:var(--text)}
   .cart-btn{
-    position:relative;background:var(--accent);color:#06182e;border:none;
-    padding:.55rem 1.1rem;border-radius:999px;font-weight:700;font-size:.92rem;
-    cursor:pointer;display:flex;align-items:center;gap:.45rem;transition:transform .15s, background .2s;
+    position:relative;background:linear-gradient(135deg,var(--accent),var(--accent-deep));
+    color:#132038;border:none;min-height:44px;
+    padding:.6rem 1.15rem;border-radius:999px;font-weight:800;font-size:.94rem;
+    display:flex;align-items:center;gap:.5rem;
+    box-shadow:0 4px 18px var(--accent-glow);
+    transition:transform .2s var(--ease),box-shadow .2s var(--ease);
   }
-  .cart-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+  .cart-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--accent-glow)}
+  .cart-btn:active{transform:scale(.97)}
   .cart-count{
-    background:#06182e;color:var(--accent);border-radius:999px;
-    min-width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;
-    font-size:.75rem;font-weight:800;padding:0 .3rem;
+    background:#132038;color:var(--accent);border-radius:999px;
+    min-width:1.4rem;height:1.4rem;display:flex;align-items:center;justify-content:center;
+    font-size:.76rem;font-weight:800;padding:0 .32rem;
   }
   /* ---------- Hero ---------- */
   .hero{
-    max-width:1200px;margin:0 auto;padding:3.5rem 1.2rem 2.5rem;
-    display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;
+    max-width:1200px;margin:0 auto;padding:3.8rem 1.2rem 2.6rem;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:2.2rem;align-items:center;
   }
-  .hero h2{font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.15;margin-bottom:1rem}
-  .hero h2 span{color:var(--accent)}
-  .hero p{color:var(--muted);font-size:1.05rem;line-height:1.65;margin-bottom:1.6rem;max-width:34rem}
+  .hero h2{font-size:clamp(2rem,4.4vw,3.15rem);font-weight:700;line-height:1.12;margin-bottom:1.05rem}
+  .hero h2 span{
+    background:linear-gradient(92deg,var(--accent),#FFD9A8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{color:var(--muted);font-size:1.06rem;line-height:1.65;margin-bottom:1.7rem;max-width:34rem}
   .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
   .btn{
-    display:inline-flex;align-items:center;gap:.5rem;
-    padding:.8rem 1.5rem;border-radius:999px;font-weight:700;font-size:.98rem;
-    text-decoration:none;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s;
+    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    min-height:48px;padding:.85rem 1.6rem;border-radius:999px;
+    font-weight:800;font-size:1rem;text-decoration:none;border:none;
+    transition:transform .2s var(--ease),box-shadow .25s var(--ease),border-color .2s;
   }
-  .btn-primary{background:linear-gradient(135deg,var(--accent),#ff8c1a);color:#081a30;box-shadow:0 6px 20px rgba(255,159,67,.35)}
-  .btn-primary:hover{transform:translateY(-2px)}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent-deep));color:#132038;
+    box-shadow:0 8px 26px var(--accent-glow);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px var(--accent-glow)}
   .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}
   .btn-ghost:hover{border-color:var(--aqua);color:var(--aqua)}
-  .btn-wa{background:#25d366;color:#06301b}
-  .btn-wa:hover{transform:translateY(-2px)}
+  .btn-wa{background:#25D366;color:#06301B;box-shadow:0 8px 26px rgba(37,211,102,.28)}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.34)}
   .hero-tank{
-    position:relative;height:300px;border-radius:24px;overflow:hidden;
-    background:linear-gradient(180deg,#0b3e70 0%,#04182e 100%);
+    position:relative;height:310px;border-radius:24px;overflow:hidden;
+    background:linear-gradient(180deg,#0B3E70 0%,#04182E 100%);
     border:1px solid var(--line);
-    box-shadow:inset 0 0 60px rgba(55,200,240,.15), 0 20px 50px rgba(0,0,0,.45);
+    box-shadow:inset 0 0 70px var(--aqua-glow),0 24px 54px rgba(0,0,0,.5);
     display:flex;align-items:center;justify-content:center;
   }
-  .bubble{position:absolute;bottom:-30px;border-radius:50%;background:rgba(160,220,255,.18);animation:rise linear infinite}
-  @keyframes rise{to{transform:translateY(-380px);opacity:0}}
-  .swim{position:absolute;font-size:2.2rem;animation:swim linear infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,.4))}
+  .bubble{position:absolute;bottom:-30px;border-radius:50%;background:rgba(170,225,255,.18);animation:rise linear infinite}
+  @keyframes rise{to{transform:translateY(-390px);opacity:0}}
+  .swim{position:absolute;font-size:2.2rem;animation:swim linear infinite;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
   @keyframes swim{
     0%{transform:translateX(-70px) scaleX(1)}
     49%{transform:translateX(330px) scaleX(1)}
@@ -108,143 +138,160 @@
     99%{transform:translateX(-70px) scaleX(-1)}
     100%{transform:translateX(-70px) scaleX(1)}
   }
-  .badges{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem}
+  .badges{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.9rem}
   .badge{
-    display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted);
-    background:rgba(255,255,255,.04);border:1px solid var(--line);
-    padding:.5rem .9rem;border-radius:999px;
+    display:flex;align-items:center;gap:.5rem;font-size:.87rem;font-weight:600;color:var(--muted);
+    background:var(--surface);border:1px solid var(--line);
+    padding:.55rem 1rem;border-radius:999px;
   }
+  .badge .ic{color:var(--green)}
   /* ---------- Sections ---------- */
-  section{max-width:1200px;margin:0 auto;padding:2.5rem 1.2rem}
+  section{max-width:1200px;margin:0 auto;padding:2.6rem 1.2rem}
   .sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
-  .sec-head h3{font-size:1.6rem}
+  .sec-head h3{font-size:1.65rem;font-weight:700;display:flex;align-items:center;gap:.55rem}
+  .sec-head h3 .ic{color:var(--aqua);width:1.5rem;height:1.5rem}
   .sec-head p{color:var(--muted);font-size:.95rem}
   /* ---------- Category filter ---------- */
-  .cats{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.6rem}
+  .cats{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.7rem}
   .cat{
-    background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted);
-    padding:.5rem 1.1rem;border-radius:999px;font-size:.9rem;cursor:pointer;transition:all .2s;
+    background:var(--surface);border:1px solid var(--line);color:var(--muted);
+    min-height:44px;padding:.55rem 1.2rem;border-radius:999px;
+    font-size:.92rem;font-weight:700;transition:all .2s var(--ease);
   }
   .cat:hover{color:var(--text);border-color:var(--aqua)}
-  .cat.active{background:var(--aqua);color:#04263b;border-color:var(--aqua);font-weight:700}
+  .cat.active{background:var(--aqua);color:#04263B;border-color:var(--aqua);box-shadow:0 4px 16px var(--aqua-glow)}
   /* ---------- Product grid ---------- */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:1.25rem}
   .card{
     background:linear-gradient(160deg,var(--card),var(--card2));
     border:1px solid var(--line);border-radius:var(--radius);
     overflow:hidden;display:flex;flex-direction:column;
-    transition:transform .18s, box-shadow .2s;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
   }
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+  .card:hover{transform:translateY(-5px);border-color:rgba(58,200,240,.4);box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 24px var(--aqua-glow)}
   .thumb{
-    height:150px;display:flex;align-items:center;justify-content:center;
+    height:152px;display:flex;align-items:center;justify-content:center;
     font-size:3.6rem;position:relative;
-    background:radial-gradient(circle at 50% 120%,rgba(55,200,240,.28),transparent 70%);
+    background:radial-gradient(circle at 50% 125%,var(--aqua-glow),transparent 70%);
     border-bottom:1px solid var(--line);
   }
   .tag{
-    position:absolute;top:.7rem;left:.7rem;font-size:.68rem;font-weight:700;
-    letter-spacing:.8px;text-transform:uppercase;color:#04263b;background:var(--aqua);
-    padding:.22rem .6rem;border-radius:999px;
+    position:absolute;top:.7rem;left:.7rem;font-size:.68rem;font-weight:800;
+    letter-spacing:.8px;text-transform:uppercase;color:#04263B;background:var(--aqua);
+    padding:.26rem .65rem;border-radius:999px;
   }
-  .tag.hot{background:var(--accent)}
-  .card-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
-  .card-body h4{font-size:1.02rem}
-  .card-body .desc{color:var(--muted);font-size:.83rem;line-height:1.45;flex:1}
-  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem}
-  .price{font-size:1.08rem;font-weight:800;color:var(--accent)}
-  .price small{color:var(--muted);font-weight:400;font-size:.72rem}
+  .tag.hot{background:var(--accent);color:#3A1F04}
+  .card-body{padding:1.05rem 1.15rem 1.25rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+  .card-body h4{font-size:1.04rem;font-weight:600}
+  .card-body .desc{color:var(--muted);font-size:.85rem;line-height:1.5;flex:1}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:.55rem;gap:.5rem}
+  .price{font-size:1.12rem;font-weight:800;color:var(--accent);font-family:'Rubik'}
   .add-btn{
-    background:rgba(55,200,240,.15);color:var(--aqua);border:1px solid rgba(55,200,240,.4);
-    padding:.45rem .95rem;border-radius:999px;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;
+    background:rgba(58,200,240,.14);color:var(--aqua);border:1px solid rgba(58,200,240,.45);
+    min-height:44px;min-width:44px;padding:.5rem 1.05rem;border-radius:999px;
+    font-weight:800;font-size:.88rem;transition:all .2s var(--ease);
   }
-  .add-btn:hover{background:var(--aqua);color:#04263b}
+  .add-btn:hover{background:var(--aqua);color:#04263B;box-shadow:0 4px 14px var(--aqua-glow)}
+  .add-btn:active{transform:scale(.95)}
   /* ---------- Info strip ---------- */
-  .strip{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;
-  }
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1rem}
   .strip .item{
-    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--radius);
-    padding:1.2rem;display:flex;gap:.9rem;align-items:flex-start;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:1.25rem;display:flex;gap:.95rem;align-items:flex-start;
+    transition:border-color .25s var(--ease);
   }
-  .strip .item .ico{font-size:1.7rem}
-  .strip .item h5{margin-bottom:.25rem;font-size:.98rem}
-  .strip .item p{color:var(--muted);font-size:.85rem;line-height:1.5}
+  .strip .item:hover{border-color:rgba(58,200,240,.35)}
+  .strip .item .ico{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;
+    background:rgba(58,200,240,.12);border:1px solid rgba(58,200,240,.3);
+    display:flex;align-items:center;justify-content:center;color:var(--aqua);
+  }
+  .strip .item .ico svg{width:22px;height:22px}
+  .strip .item h5{margin-bottom:.3rem;font-size:1rem;font-weight:600}
+  .strip .item p{color:var(--muted);font-size:.87rem;line-height:1.55}
   /* ---------- About / contact ---------- */
-  .about{
-    display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start;
-  }
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start}
   .about p{color:var(--muted);line-height:1.7;margin-bottom:1rem}
+  .about b,.about i{color:var(--text)}
   .contact-card{
     background:linear-gradient(160deg,var(--card),var(--card2));
     border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;
   }
-  .contact-card h4{margin-bottom:1rem}
-  .contact-row{display:flex;align-items:center;gap:.8rem;padding:.55rem 0;color:var(--muted);font-size:.95rem}
-  .contact-row a{color:var(--aqua);text-decoration:none}
+  .contact-card h4{margin-bottom:1rem;font-size:1.15rem;font-weight:600}
+  .contact-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;color:var(--muted);font-size:.95rem}
+  .contact-row .ic{color:var(--aqua)}
+  .contact-row a{color:var(--aqua);text-decoration:none;font-weight:600}
   .contact-row a:hover{text-decoration:underline}
   /* ---------- Cart drawer ---------- */
-  .overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90;
-  }
+  .overlay{position:fixed;inset:0;background:rgba(2,8,16,.6);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90}
   .overlay.open{opacity:1;pointer-events:auto}
   .drawer{
-    position:fixed;top:0;right:-420px;width:min(400px,95vw);height:100vh;z-index:100;
-    background:#0b2a4d;border-left:1px solid var(--line);
-    display:flex;flex-direction:column;transition:right .3s ease;
+    position:fixed;top:0;right:-430px;width:min(405px,95vw);height:100vh;z-index:100;
+    background:#0A2647;border-left:1px solid var(--line);
+    display:flex;flex-direction:column;transition:right .32s var(--ease);
   }
   .drawer.open{right:0}
   .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.2rem;border-bottom:1px solid var(--line)}
-  .drawer-head h4{font-size:1.15rem}
-  .close-x{background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer}
+  .drawer-head h4{font-size:1.15rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+  .drawer-head h4 .ic{color:var(--accent)}
+  .close-x{background:none;border:none;color:var(--muted);font-size:1.5rem;min-width:44px;min-height:44px;border-radius:10px}
+  .close-x:hover{color:var(--text);background:var(--surface)}
   .drawer-items{flex:1;overflow-y:auto;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.9rem}
-  .empty-msg{color:var(--muted);text-align:center;margin-top:3rem;font-size:.95rem;line-height:1.6}
-  .ci{display:flex;gap:.8rem;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:.7rem}
-  .ci .em{font-size:1.8rem}
+  .empty-msg{color:var(--muted);text-align:center;margin-top:3rem;font-size:.96rem;line-height:1.6}
+  .ci{display:flex;gap:.8rem;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.7rem}
+  .ci .em{font-size:1.8rem;width:2.3rem;text-align:center}
   .ci .inf{flex:1}
-  .ci .inf h6{font-size:.9rem;margin-bottom:.15rem}
-  .ci .inf span{color:var(--accent);font-size:.85rem;font-weight:700}
-  .qty{display:flex;align-items:center;gap:.5rem}
+  .ci .inf h6{font-size:.92rem;font-weight:600;margin-bottom:.15rem}
+  .ci .inf span{color:var(--accent);font-size:.86rem;font-weight:800}
+  .qty{display:flex;align-items:center;gap:.4rem}
   .qty button{
-    width:1.6rem;height:1.6rem;border-radius:6px;border:1px solid var(--line);
-    background:rgba(255,255,255,.06);color:var(--text);cursor:pointer;font-weight:700;
+    width:2.2rem;height:2.2rem;border-radius:8px;border:1px solid var(--line);
+    background:var(--surface);color:var(--text);font-weight:800;font-size:1rem;
+    transition:background .15s;
   }
-  .qty span{min-width:1.2rem;text-align:center;font-weight:700;font-size:.9rem}
+  .qty button:hover{background:rgba(58,200,240,.18)}
+  .qty span{min-width:1.3rem;text-align:center;font-weight:800;font-size:.94rem}
   .drawer-foot{border-top:1px solid var(--line);padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
-  .total-row{display:flex;justify-content:space-between;font-size:1.05rem}
-  .total-row b{color:var(--accent);font-size:1.2rem}
-  .note{color:var(--muted);font-size:.78rem;line-height:1.5}
+  .total-row{display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600}
+  .total-row b{color:var(--accent);font-size:1.28rem;font-family:'Rubik'}
+  .note{color:var(--muted);font-size:.8rem;line-height:1.55}
   .checkout-btn{
-    background:#25d366;color:#06301b;border:none;padding:.9rem;border-radius:12px;
-    font-weight:800;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;
-    transition:transform .15s;
+    background:#25D366;color:#06301B;border:none;min-height:52px;padding:.9rem;border-radius:14px;
+    font-weight:800;font-size:1.02rem;display:flex;align-items:center;justify-content:center;gap:.55rem;
+    box-shadow:0 8px 22px rgba(37,211,102,.3);
+    transition:transform .2s var(--ease),box-shadow .2s var(--ease);
   }
-  .checkout-btn:hover{transform:translateY(-1px)}
-  .checkout-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .checkout-btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(37,211,102,.36)}
+  .checkout-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
   /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--line);margin-top:3rem}
   .foot{
     max-width:1200px;margin:0 auto;padding:2rem 1.2rem;
     display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
-    color:var(--muted);font-size:.85rem;
+    color:var(--muted);font-size:.87rem;
   }
   .socials{display:flex;gap:.8rem}
   .socials a{
-    display:flex;align-items:center;gap:.4rem;color:var(--muted);text-decoration:none;
-    border:1px solid var(--line);padding:.45rem .9rem;border-radius:999px;font-size:.85rem;transition:all .2s;
+    display:flex;align-items:center;gap:.45rem;color:var(--muted);text-decoration:none;
+    border:1px solid var(--line);min-height:44px;padding:.5rem 1rem;border-radius:999px;
+    font-size:.87rem;font-weight:700;transition:all .2s var(--ease);
   }
   .socials a:hover{color:var(--text);border-color:var(--aqua)}
   /* ---------- Toast ---------- */
   .toast{
-    position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);
-    background:var(--green);color:#03301a;font-weight:700;padding:.7rem 1.4rem;border-radius:999px;
-    transition:transform .3s;z-index:200;font-size:.92rem;box-shadow:0 10px 30px rgba(0,0,0,.4);
+    position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(90px);
+    background:var(--green);color:#03301A;font-weight:800;padding:.75rem 1.5rem;border-radius:999px;
+    transition:transform .3s var(--ease);z-index:200;font-size:.94rem;box-shadow:0 12px 32px rgba(0,0,0,.45);
   }
   .toast.show{transform:translateX(-50%) translateY(0)}
-  /* ---------- Responsive ---------- */
+  /* ---------- Motion & responsive ---------- */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    html{scroll-behavior:auto}
+  }
   @media(max-width:820px){
     .hero{grid-template-columns:1fr;padding-top:2.2rem}
-    .hero-tank{height:220px}
+    .hero-tank{height:225px}
     .about{grid-template-columns:1fr}
     .nav-links a:not(.cart-wrap){display:none}
   }
@@ -252,18 +299,43 @@
 </head>
 <body>
 
+<!-- Inline SVG icon set (Lucide-style, licensed ISC) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-fish" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-shop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+  </defs>
+</svg>
+
 <header>
   <div class="nav">
     <a href="#" class="brand">
-      <div class="logo">🐠</div>
+      <div class="logo" aria-hidden="true"><svg><use href="#i-fish"/></svg></div>
       <h1>Sami Fishes &amp; Aquariums<small>Lahore · Pakistan</small></h1>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main">
       <a href="#shop">Shop</a>
       <a href="#why">Why Us</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <button class="cart-btn" onclick="toggleCart(true)">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="cart-btn" onclick="toggleCart(true)" aria-label="Open shopping cart">
+        <svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg> Cart
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -273,16 +345,16 @@
     <h2>Premium Quality <span>Ornamental Fish</span> &amp; Aquariums</h2>
     <p>From stunning Bettas to complete aquarium setups — filters, plants, lights and everything your underwater world needs. Trusted by hobbyists across Lahore.</p>
     <div class="hero-cta">
-      <a href="#shop" class="btn btn-primary">🛍️ Shop Now</a>
-      <a href="#" id="heroWa" class="btn btn-wa">💬 Order on WhatsApp</a>
+      <a href="#shop" class="btn btn-primary">Shop Now</a>
+      <a href="#" id="heroWa" class="btn btn-wa"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg> Order on WhatsApp</a>
     </div>
     <div class="badges">
-      <div class="badge">✅ Healthy, quarantined fish</div>
-      <div class="badge">🚚 Delivery across Lahore</div>
-      <div class="badge">💵 Cash on Delivery</div>
+      <div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Healthy, quarantined fish</div>
+      <div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg> Delivery across Lahore</div>
+      <div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg> Cash on Delivery</div>
     </div>
   </div>
-  <div class="hero-tank" id="tank">
+  <div class="hero-tank" id="tank" aria-hidden="true">
     <span class="swim" style="top:18%;animation-duration:14s">🐠</span>
     <span class="swim" style="top:45%;animation-duration:19s;animation-delay:-6s">🐟</span>
     <span class="swim" style="top:68%;animation-duration:11s;animation-delay:-3s">🐡</span>
@@ -294,52 +366,52 @@
 
 <section id="shop">
   <div class="sec-head">
-    <h3>🛍️ Our Products</h3>
-    <p>Prices in PKR — tap “Add” then checkout via WhatsApp</p>
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-shop"/></svg>Our Products</h3>
+    <p>Prices in PKR — tap "Add" then checkout via WhatsApp</p>
   </div>
   <div class="cats" id="cats"></div>
   <div class="grid" id="grid"></div>
 </section>
 
 <section id="why">
-  <div class="sec-head"><h3>⭐ Why Sami Fishes?</h3></div>
+  <div class="sec-head"><h3><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>Why Sami Fishes?</h3></div>
   <div class="strip">
-    <div class="item"><div class="ico">🐟</div><div><h5>Healthy Livestock</h5><p>Every fish is quarantined and feeding well before it reaches your tank.</p></div></div>
-    <div class="item"><div class="ico">📦</div><div><h5>Safe Packing</h5><p>Oxygen-bag packing for live fish so your order arrives stress-free.</p></div></div>
-    <div class="item"><div class="ico">🚚</div><div><h5>Fast Local Delivery</h5><p>Same-day / next-day delivery across Lahore. Cash on Delivery available.</p></div></div>
-    <div class="item"><div class="ico">🧠</div><div><h5>Expert Advice</h5><p>Free guidance on tank setup, water care and fish compatibility — just ask.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-fish"/></svg></div><div><h5>Healthy Livestock</h5><p>Every fish is quarantined and feeding well before it reaches your tank.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-box"/></svg></div><div><h5>Safe Packing</h5><p>Oxygen-bag packing for live fish so your order arrives stress-free.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><div><h5>Fast Local Delivery</h5><p>Same-day / next-day delivery across Lahore. Cash on Delivery available.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-bulb"/></svg></div><div><h5>Expert Advice</h5><p>Free guidance on tank setup, water care and fish compatibility — just ask.</p></div></div>
   </div>
 </section>
 
 <section id="pay">
-  <div class="sec-head"><h3>💳 How to Pay</h3><p>Simple, safe options for every customer</p></div>
+  <div class="sec-head"><h3><svg class="ic" aria-hidden="true"><use href="#i-card"/></svg>How to Pay</h3><p>Simple, safe options for every customer</p></div>
   <div class="strip">
-    <div class="item"><div class="ico">💵</div><div><h5>Cash on Delivery</h5><p>Pay when your order arrives at your door — available across Lahore.</p></div></div>
-    <div class="item"><div class="ico">🏦</div><div><h5>Bank Transfer / Raast</h5><p>Allied Bank — instant transfer from any bank app. Full account details are included automatically in your WhatsApp order.</p></div></div>
-    <div class="item"><div class="ico">📱</div><div><h5>JazzCash</h5><p>Send to <b>0333 5373911</b> and share the payment screenshot on WhatsApp.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-cash"/></svg></div><div><h5>Cash on Delivery</h5><p>Pay when your order arrives at your door — available across Lahore.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-bank"/></svg></div><div><h5>Bank Transfer / Raast</h5><p>Allied Bank — instant transfer from any bank app. Full account details are included automatically in your WhatsApp order.</p></div></div>
+    <div class="item"><div class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><div><h5>JazzCash</h5><p>Send to <b>0333 5373911</b> and share the payment screenshot on WhatsApp.</p></div></div>
   </div>
 </section>
 
 <section id="insta">
-  <div class="sec-head"><h3>📷 Fresh From Our Instagram</h3><p>New arrivals are always posted on Instagram first</p></div>
+  <div class="sec-head"><h3><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg>Fresh From Our Instagram</h3><p>New arrivals are always posted on Instagram first</p></div>
   <div id="instaFeed"></div>
 </section>
 
 <section id="about">
   <div class="about">
     <div>
-      <div class="sec-head"><h3>🐠 About Us</h3></div>
+      <div class="sec-head"><h3><svg class="ic" aria-hidden="true"><use href="#i-fish"/></svg>About Us</h3></div>
       <p><b>Sami Fishes &amp; Aquariums</b> is a Lahore-based aquarium business dealing in premium quality ornamental fish, aquariums, and complete aquascaping supplies — filters, plants, lights and accessories.</p>
       <p>What started as a passion for fishkeeping is now a growing store serving hobbyists across the city. Follow our journey on Instagram and Facebook to see new arrivals first — from the <i>Beauty of Betta</i> collection to full tank builds.</p>
       <p>Visit our socials, message us anytime, and let us help you build your dream aquarium.</p>
     </div>
     <div class="contact-card" id="contact">
-      <h4>📞 Contact &amp; Orders</h4>
-      <div class="contact-row">💬 <a href="#" class="wa-link">WhatsApp: 0336 7889788</a></div>
-      <div class="contact-row">📷 <a href="https://www.instagram.com/sami_fishes_aquariums/" target="_blank" rel="noopener">@sami_fishes_aquariums</a></div>
-      <div class="contact-row">👥 <a href="https://www.facebook.com/groups/848514917098911/" target="_blank" rel="noopener">Facebook Community Group</a></div>
-      <div class="contact-row">📍 Lahore, Pakistan</div>
-      <div class="contact-row">💵 Cash on Delivery · Bank Transfer (Allied Bank) · JazzCash 0333 5373911</div>
+      <h4>Contact &amp; Orders</h4>
+      <div class="contact-row"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg> <a href="#" class="wa-link">WhatsApp: 0336 7889788</a></div>
+      <div class="contact-row"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> <a href="https://www.instagram.com/sami_fishes_aquariums/" target="_blank" rel="noopener">@sami_fishes_aquariums</a></div>
+      <div class="contact-row"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> <a href="https://www.facebook.com/groups/848514917098911/" target="_blank" rel="noopener">Facebook Community Group</a></div>
+      <div class="contact-row"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Lahore, Pakistan</div>
+      <div class="contact-row"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg> Cash on Delivery · Bank Transfer (Allied Bank) · JazzCash 0333 5373911</div>
     </div>
   </div>
 </section>
@@ -348,28 +420,30 @@
   <div class="foot">
     <div>© <span id="yr"></span> Sami Fishes &amp; Aquariums — Lahore, Pakistan</div>
     <div class="socials">
-      <a href="https://www.instagram.com/sami_fishes_aquariums/" target="_blank" rel="noopener">📷 Instagram</a>
-      <a href="https://www.facebook.com/groups/848514917098911/" target="_blank" rel="noopener">👥 Facebook</a>
+      <a href="https://www.instagram.com/sami_fishes_aquariums/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> Instagram</a>
+      <a href="https://www.facebook.com/groups/848514917098911/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> Facebook</a>
     </div>
   </div>
 </footer>
 
 <!-- Cart drawer -->
 <div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
-<aside class="drawer" id="drawer">
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
   <div class="drawer-head">
-    <h4>🛒 Your Cart</h4>
-    <button class="close-x" onclick="toggleCart(false)">✕</button>
+    <h4><svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg>Your Cart</h4>
+    <button class="close-x" onclick="toggleCart(false)" aria-label="Close cart">✕</button>
   </div>
   <div class="drawer-items" id="cartItems"></div>
   <div class="drawer-foot">
     <div class="total-row"><span>Total</span><b id="cartTotal">Rs 0</b></div>
-    <p class="note">Checkout opens WhatsApp with your order details pre-typed. Pay by Cash on Delivery, bank transfer, Easypaisa or JazzCash — we'll confirm on chat.</p>
-    <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>💬 Checkout on WhatsApp</button>
+    <p class="note">Checkout opens WhatsApp with your order details pre-typed. Pay by Cash on Delivery, bank transfer or JazzCash — we'll confirm on chat.</p>
+    <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
+      <svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg> Checkout on WhatsApp
+    </button>
   </div>
 </aside>
 
-<div class="toast" id="toast">Added to cart ✓</div>
+<div class="toast" id="toast" role="status">Added to cart ✓</div>
 
 <script>
 /* ================================================================
@@ -378,10 +452,7 @@
 const WHATSAPP_NUMBER = "923367889788"; // WhatsApp number: country code first, no + or spaces
 const CURRENCY = "Rs";
 
-/* 🏦 Bank details shown to customers in the WhatsApp order message.
-   Get your IBAN from your bank app. Also set up a FREE Raast ID
-   (linked to 0336 7889788) in your bank app so customers can pay
-   instantly using just your phone number. */
+/* 🏦 Bank details shown to customers in the WhatsApp order message. */
 const BANK = {
   bankName:     "Allied Bank Limited",
   accountTitle: "Asma Haider Qureshi",
@@ -405,8 +476,8 @@ const INSTAGRAM_EMBED_HTML = ``;
 
 /* ================================================================
    🐟 PRODUCT CATALOG — add / edit / remove products here.
-   emoji = picture shown on the card (replace with real photos later:
-   set img:"photos/betta.jpg" and it will be used instead of emoji)
+   emoji = placeholder shown until you add a real photo:
+   set img:"https://…" (or a Google Drive share link) to show a photo.
    ================================================================ */
 const PRODUCTS = [
   // --- Live Fish ---
@@ -424,7 +495,7 @@ const PRODUCTS = [
   {id:11, cat:"Aquariums", name:"4ft Complete Setup",      price:26000, emoji:"🏞️", desc:"48 inch showpiece tank — includes filter, light and decoration package."},
   {id:12, cat:"Aquariums", name:"Nano / Betta Tank",       price:3500,  emoji:"🫙", desc:"Compact desktop tank, perfect home for a single betta."},
   // --- Filters & Equipment ---
-  {id:13, cat:"Equipment", name:"Internal Filter",         price:1400,  emoji:"⚙️", tag:"Restocked", desc:"Multi-function internal filter with spray bar — as featured on our page."},
+  {id:13, cat:"Equipment", name:"Internal Filter",         price:1400,  emoji:"⚙️", tag:"Restocked", desc:"Multi-function internal filter with spray bar — as featured on our page.", img:"photos/internal-filter.jpg"},
   {id:14, cat:"Equipment", name:"Top Filter (with media)", price:2200,  emoji:"🔧", desc:"3-chamber top filter with bio media for crystal-clear water."},
   {id:15, cat:"Equipment", name:"Air Pump (Double Outlet)",price:950,   emoji:"💨", desc:"Silent double-outlet air pump with valve and airline."},
   {id:16, cat:"Equipment", name:"Aquarium Heater 100W",    price:1100,  emoji:"🌡️", desc:"Auto-thermostat heater — essential for bettas and tropicals in winter."},
@@ -449,10 +520,9 @@ let activeCat = "All";
 const cart = {}; // id -> qty
 
 const fmt = n => CURRENCY + " " + n.toLocaleString("en-PK");
+const waHref = msg => "https://wa.me/" + WHATSAPP_NUMBER + (msg ? "?text=" + encodeURIComponent(msg) : "");
 
-/* Accepts normal image links AND Google Drive share links.
-   A pasted Drive link like https://drive.google.com/file/d/FILE_ID/view
-   is converted automatically into a direct image URL. */
+/* Accepts normal image links AND Google Drive share links. */
 function imgUrl(u){
   u = String(u||"").trim();
   if(!u) return "";
@@ -460,7 +530,6 @@ function imgUrl(u){
   if(m) return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w800";
   return u;
 }
-const waHref = msg => "https://wa.me/" + WHATSAPP_NUMBER + (msg ? "?text=" + encodeURIComponent(msg) : "");
 
 function renderCats(){
   document.getElementById("cats").innerHTML = cats.map(c =>
@@ -481,7 +550,7 @@ function renderGrid(){
         <p class="desc">${p.desc}</p>
         <div class="price-row">
           <div class="price">${fmt(p.price)}</div>
-          <button class="add-btn" onclick="addToCart(${p.id})">+ Add</button>
+          <button class="add-btn" onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart">+ Add</button>
         </div>
       </div>
     </div>`).join("");
@@ -509,13 +578,13 @@ function updateCartUI(){
   document.getElementById("cartTotal").textContent = fmt(total);
   document.getElementById("checkoutBtn").disabled = count===0;
   document.getElementById("cartItems").innerHTML = count===0
-    ? `<p class="empty-msg">Your cart is empty.<br>Add some fish friends! 🐠</p>`
+    ? `<p class="empty-msg">Your cart is empty.<br>Add some fish friends!</p>`
     : items.map(({p,qty}) => `
       <div class="ci">
-        <div class="em">${p.emoji}</div>
+        <div class="em">${p.img ? `<img src="${imgUrl(p.img)}" alt="" style="width:2.1rem;height:2.1rem;object-fit:cover;border-radius:8px">` : (p.emoji||"🐠")}</div>
         <div class="inf"><h6>${p.name}</h6><span>${fmt(p.price)}</span></div>
         <div class="qty">
-          <button onclick="changeQty(${p.id},-1)">−</button><span>${qty}</span><button onclick="changeQty(${p.id},1)">+</button>
+          <button onclick="changeQty(${p.id},-1)" aria-label="Decrease quantity">−</button><span>${qty}</span><button onclick="changeQty(${p.id},1)" aria-label="Increase quantity">+</button>
         </div>
       </div>`).join("");
 }
@@ -543,19 +612,6 @@ document.getElementById("heroWa").href = waHref("Hi! I'd like to place an order 
 document.querySelectorAll(".wa-link").forEach(a => a.href = waHref(""));
 document.getElementById("yr").textContent = new Date().getFullYear();
 
-/* bubbles in hero tank */
-const tank = document.getElementById("tank");
-for(let i=0;i<14;i++){
-  const b = document.createElement("span");
-  b.className = "bubble";
-  const s = 4 + Math.random()*10;
-  b.style.width = b.style.height = s+"px";
-  b.style.left = (5+Math.random()*90)+"%";
-  b.style.animationDuration = (4+Math.random()*6)+"s";
-  b.style.animationDelay = (-Math.random()*6)+"s";
-  tank.appendChild(b);
-}
-
 /* Instagram feed section */
 (function(){
   const box = document.getElementById("instaFeed");
@@ -565,12 +621,26 @@ for(let i=0;i<14;i++){
     box.innerHTML = `
       <div style="background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);
                   border-radius:var(--radius);padding:2rem;text-align:center">
-        <div style="font-size:2.4rem;margin-bottom:.6rem">📷</div>
-        <p style="color:var(--muted);margin-bottom:1.1rem">See our latest fish, tanks and the <b>Beauty of Betta</b> collection — new stock is posted on Instagram first.</p>
+        <p style="color:var(--muted);margin-bottom:1.1rem;font-size:1rem">See our latest fish, tanks and the <b style="color:var(--text)">Beauty of Betta</b> collection — new stock is posted on Instagram first.</p>
         <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.instagram.com/sami_fishes_aquariums/">Follow @sami_fishes_aquariums</a>
       </div>`;
   }
 })();
+
+/* bubbles in hero tank (skipped for reduced-motion users) */
+const tank = document.getElementById("tank");
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  for(let i=0;i<14;i++){
+    const b = document.createElement("span");
+    b.className = "bubble";
+    const s = 4 + Math.random()*10;
+    b.style.width = b.style.height = s+"px";
+    b.style.left = (5+Math.random()*90)+"%";
+    b.style.animationDuration = (4+Math.random()*6)+"s";
+    b.style.animationDelay = (-Math.random()*6)+"s";
+    tank.appendChild(b);
+  }
+}
 
 /* Google Sheet product loader (admin panel) */
 function parseCSV(t){
