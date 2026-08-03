@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Sami Fishes &amp; Aquariums</title>
+<style>
+  :root{
+    --deep:#06182e;--deep2:#0a2342;--card:#0e2d52;--card2:#123761;
+    --line:rgba(120,180,255,.16);--text:#eaf4ff;--muted:#9db8d8;
+    --accent:#ff9f43;--aqua:#37c8f0;--green:#39d98a;--red:#ff6b6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(180deg,var(--deep),var(--deep2));color:var(--text);min-height:100vh;padding-bottom:4rem}
+  .wrap{max-width:980px;margin:0 auto;padding:1.5rem 1.2rem}
+  h1{font-size:1.4rem;display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}
+  .sub{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
+  .card{background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;padding:1.3rem;margin-bottom:1rem}
+  label{display:block;font-size:.78rem;color:var(--muted);margin:.6rem 0 .25rem;text-transform:uppercase;letter-spacing:.6px}
+  input,select,textarea{
+    width:100%;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:10px;
+    color:var(--text);padding:.6rem .8rem;font-size:.95rem;font-family:inherit;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--aqua)}
+  textarea{resize:vertical;min-height:60px}
+  .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.4rem;border:none;cursor:pointer;
+    padding:.65rem 1.2rem;border-radius:999px;font-weight:700;font-size:.9rem;transition:transform .15s;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(135deg,var(--accent),#ff8c1a);color:#081a30}
+  .btn-aqua{background:rgba(55,200,240,.15);color:var(--aqua);border:1px solid rgba(55,200,240,.4)}
+  .btn-red{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.4)}
+  .btn-green{background:var(--green);color:#03301a}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .plist{display:flex;flex-direction:column;gap:.8rem}
+  .prow{
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:1rem;
+  }
+  .prow-top{display:flex;align-items:center;gap:.8rem;cursor:pointer}
+  .prow-top .em{font-size:1.9rem;width:2.4rem;text-align:center}
+  .prow-top .nm{flex:1}
+  .prow-top .nm b{display:block}
+  .prow-top .nm span{color:var(--muted);font-size:.8rem}
+  .prow-top .pr{color:var(--accent);font-weight:800}
+  .prow-edit{display:none;border-top:1px solid var(--line);margin-top:.9rem;padding-top:.6rem}
+  .prow.open .prow-edit{display:block}
+  .actions{display:flex;gap:.6rem;margin-top:.9rem;flex-wrap:wrap}
+  .toast{
+    position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(90px);
+    background:var(--green);color:#03301a;font-weight:700;padding:.7rem 1.4rem;border-radius:999px;
+    transition:transform .3s;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+  .toast.err{background:var(--red);color:#3a0808}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  .hidden{display:none!important}
+  .setup ol{margin:.6rem 0 .6rem 1.3rem;color:var(--muted);line-height:1.7}
+  .setup code{background:rgba(255,255,255,.08);padding:.1rem .4rem;border-radius:6px;font-size:.85rem}
+  .pill{display:inline-block;background:rgba(57,217,138,.15);color:var(--green);border:1px solid rgba(57,217,138,.4);padding:.2rem .7rem;border-radius:999px;font-size:.78rem;font-weight:700}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+  .count{color:var(--muted);font-size:.88rem}
+  .spin{display:inline-block;width:1rem;height:1rem;border:2px solid var(--line);border-top-color:var(--aqua);border-radius:50%;animation:sp 1s linear infinite;vertical-align:middle}
+  @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🐠 Store Admin <span class="pill">Sami Fishes &amp; Aquariums</span></h1>
+  <p class="sub">Add products, change prices, remove items — changes save to your Google Sheet and appear on the website automatically (allow a few minutes).</p>
+
+  <!-- SETUP SCREEN (shown until APPS_SCRIPT_URL is configured) -->
+  <div class="card setup" id="setupCard">
+    <h3 style="margin-bottom:.5rem">⚙️ One-time setup needed</h3>
+    <p style="color:var(--muted)">This panel saves changes to your <b>Store Products</b> Google Sheet through a free Google Apps Script. Set it up once:</p>
+    <ol>
+      <li>Open the <b>Store Products</b> Google Sheet (in your Drive folder)</li>
+      <li>Menu: <b>Extensions → Apps Script</b></li>
+      <li>Paste the code from <code>apps-script-code.txt</code> (in your sami fish folder) and change the <code>SECRET_KEY</code> to your own password</li>
+      <li><b>Deploy → New deployment → Web app</b> — Execute as: <b>Me</b>, Access: <b>Anyone</b> → Deploy → copy the URL ending in <code>/exec</code></li>
+      <li>Open <code>admin.html</code> in a text editor and paste that URL into <code>APPS_SCRIPT_URL</code> below the word SETTINGS — or send it to Claude and it will be done for you</li>
+    </ol>
+    <p style="color:var(--muted)">Tip: ask Claude to walk through this with you in the browser — it takes about 4 minutes.</p>
+  </div>
+
+  <!-- LOGIN SCREEN -->
+  <div class="card hidden" id="loginCard">
+    <h3 style="margin-bottom:.4rem">🔑 Admin login</h3>
+    <label>Admin password (the SECRET_KEY you set in Apps Script)</label>
+    <input type="password" id="keyInput" placeholder="Enter admin password">
+    <div class="actions"><button class="btn btn-orange" onclick="login()">Unlock</button></div>
+  </div>
+
+  <!-- MAIN PANEL -->
+  <div class="hidden" id="panel">
+    <div class="card">
+      <h3 style="margin-bottom:.2rem">➕ Add a new product</h3>
+      <div class="row">
+        <div><label>Name</label><input id="a_name" placeholder="e.g. Crowntail Betta"></div>
+        <div><label>Category</label><input id="a_cat" list="catList" placeholder="e.g. Live Fish"><datalist id="catList"></datalist></div>
+        <div><label>Price (Rs)</label><input id="a_price" type="number" placeholder="1500"></div>
+        <div><label>Emoji</label><input id="a_emoji" placeholder="🐠"></div>
+        <div><label>Tag (optional)</label><input id="a_tag" placeholder="New / Hot / Sale"></div>
+        <div><label>Photo link (optional)</label><input id="a_img" placeholder="Google Drive share link or any image link"></div>
+      </div>
+      <label>Description</label><textarea id="a_desc" placeholder="1–2 selling lines customers will see"></textarea>
+      <div class="actions"><button class="btn btn-orange" id="addBtn" onclick="addProduct()">Add product</button></div>
+    </div>
+
+    <div class="topbar">
+      <span class="count" id="count"></span>
+      <button class="btn btn-aqua" onclick="loadProducts()">↻ Refresh</button>
+    </div>
+    <div class="plist" id="plist"><div class="card"><span class="spin"></span> Loading products…</div></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= SETTINGS ================= */
+const APPS_SCRIPT_URL = ""; // 👈 paste your Apps Script Web App URL here (ends in /exec)
+/* ============================================ */
+
+let KEY = "";
+let PRODUCTS = [];
+
+/* Google Drive share links are converted to direct image URLs automatically */
+function imgUrl(u){
+  u = String(u||"").trim();
+  if(!u) return "";
+  const m = u.match(/drive\.google\.com\/file\/d\/([-\w]{20,})/) || u.match(/[?&]id=([-\w]{20,})/);
+  if(m) return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w800";
+  return u;
+}
+
+const $ = id => document.getElementById(id);
+function toast(msg, err){
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.toggle("err", !!err);
+  t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+function init(){
+  if(!APPS_SCRIPT_URL){ $("setupCard").classList.remove("hidden"); return; }
+  $("setupCard").classList.add("hidden");
+  $("loginCard").classList.remove("hidden");
+  $("keyInput").addEventListener("keydown", e=>{ if(e.key==="Enter") login(); });
+}
+
+async function api(params){
+  if(params.method === "GET"){
+    const res = await fetch(APPS_SCRIPT_URL + "?key=" + encodeURIComponent(KEY));
+    return res.json();
+  }
+  const res = await fetch(APPS_SCRIPT_URL, {method:"POST", body: JSON.stringify({...params, key: KEY})});
+  return res.json();
+}
+
+async function login(){
+  KEY = $("keyInput").value.trim();
+  if(!KEY) return toast("Enter the admin password", true);
+  toast("Checking…");
+  try{
+    const r = await api({method:"GET"});
+    if(r.error) return toast("Wrong password", true);
+    $("loginCard").classList.add("hidden");
+    $("panel").classList.remove("hidden");
+    PRODUCTS = r.products || [];
+    render();
+  }catch(e){ toast("Could not reach the sheet — check internet / setup", true); }
+}
+
+async function loadProducts(){
+  try{
+    const r = await api({method:"GET"});
+    if(r.error) return toast("Session error — reload the page", true);
+    PRODUCTS = r.products || [];
+    render();
+    toast("Refreshed ✓");
+  }catch(e){ toast("Network error", true); }
+}
+
+function render(){
+  $("count").textContent = PRODUCTS.length + " products · grouped by category";
+  const cats = [...new Set(PRODUCTS.map(p=>p.category))];
+  $("catList").innerHTML = cats.map(c=>`<option value="${esc(c)}">`).join("");
+  $("plist").innerHTML = PRODUCTS.map(p => `
+    <div class="prow" id="row${p.id}">
+      <div class="prow-top" onclick="toggleRow(${p.id})">
+        <div class="em">${p.img ? `<img src="${esc(imgUrl(p.img))}" style="width:2.2rem;height:2.2rem;object-fit:cover;border-radius:8px" onerror="this.outerHTML='🖼'">` : esc(p.emoji||"🐠")}</div>
+        <div class="nm"><b>${esc(p.name)}</b><span>${esc(p.category)}${p.tag?` · ${esc(p.tag)}`:""}</span></div>
+        <div class="pr">Rs ${Number(p.price).toLocaleString("en-PK")}</div>
+      </div>
+      <div class="prow-edit">
+        <div class="row">
+          <div><label>Name</label><input id="e_name_${p.id}" value="${esc(p.name)}"></div>
+          <div><label>Category</label><input id="e_cat_${p.id}" value="${esc(p.category)}"></div>
+          <div><label>Price (Rs)</label><input id="e_price_${p.id}" type="number" value="${esc(p.price)}"></div>
+          <div><label>Emoji</label><input id="e_emoji_${p.id}" value="${esc(p.emoji)}"></div>
+          <div><label>Tag</label><input id="e_tag_${p.id}" value="${esc(p.tag)}"></div>
+          <div><label>Photo link</label><input id="e_img_${p.id}" value="${esc(p.img)}"></div>
+        </div>
+        <label>Description</label><textarea id="e_desc_${p.id}">${esc(p.description)}</textarea>
+        <div class="actions">
+          <button class="btn btn-green" onclick="saveProduct(${p.id})">💾 Save changes</button>
+          <button class="btn btn-red" onclick="deleteProduct(${p.id}, '${esc(p.name)}')">🗑 Remove product</button>
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+function esc(s){ return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;"); }
+function toggleRow(id){ $("row"+id).classList.toggle("open"); }
+
+async function addProduct(){
+  const p = {
+    name: $("a_name").value.trim(), category: $("a_cat").value.trim() || "Other",
+    price: $("a_price").value, emoji: $("a_emoji").value.trim() || "🐠",
+    tag: $("a_tag").value.trim(), img: $("a_img").value.trim(), description: $("a_desc").value.trim(),
+  };
+  if(!p.name) return toast("Product needs a name", true);
+  if(!p.price) return toast("Product needs a price", true);
+  $("addBtn").disabled = true;
+  try{
+    const r = await api({action:"add", product:p});
+    if(r.error) throw 0;
+    ["a_name","a_cat","a_price","a_emoji","a_tag","a_img","a_desc"].forEach(i=>$(i).value="");
+    toast("Product added ✓ (live on site within a few minutes)");
+    loadProducts();
+  }catch(e){ toast("Could not add — try again", true); }
+  $("addBtn").disabled = false;
+}
+
+async function saveProduct(id){
+  const p = {
+    name: $("e_name_"+id).value.trim(), category: $("e_cat_"+id).value.trim(),
+    price: $("e_price_"+id).value, emoji: $("e_emoji_"+id).value.trim(),
+    tag: $("e_tag_"+id).value.trim(), img: $("e_img_"+id).value.trim(),
+    description: $("e_desc_"+id).value.trim(),
+  };
+  try{
+    const r = await api({action:"update", id, product:p});
+    if(r.error) throw 0;
+    toast("Saved ✓ (live on site within a few minutes)");
+    loadProducts();
+  }catch(e){ toast("Could not save — try again", true); }
+}
+
+async function deleteProduct(id, name){
+  if(!confirm(`Remove "${name}" from the store?`)) return;
+  try{
+    const r = await api({action:"delete", id});
+    if(r.error) throw 0;
+    toast("Removed ✓");
+    loadProducts();
+  }catch(e){ toast("Could not remove — try again", true); }
+}
+
+init();
+</script>
+</body>
+</html>

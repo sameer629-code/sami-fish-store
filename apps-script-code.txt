@@ -1,0 +1,91 @@
+/* ============================================================
+   SAMI FISHES & AQUARIUMS — Admin API (Google Apps Script)
+   ------------------------------------------------------------
+   This tiny script turns your "Store Products" Google Sheet into
+   a live database that the admin panel (admin.html) can write to.
+   It is 100% free and runs on your own Google account.
+
+   HOW TO INSTALL (one time, ~4 minutes):
+   1. Open the "Store Products" Google Sheet
+   2. Menu: Extensions → Apps Script
+   3. Delete any code you see, paste ALL of this file, and
+      CHANGE the SECRET_KEY below to your own password
+   4. Click Deploy → New deployment → type: Web app
+        - Description: store admin
+        - Execute as: Me
+        - Who has access: Anyone
+      → Deploy → Authorize with your Google account → copy the
+      Web app URL (ends in /exec)
+   5. Open admin.html and paste that URL into APPS_SCRIPT_URL
+   ============================================================ */
+
+const SECRET_KEY = "CHANGE-ME-sami2026";   // 👈 your admin password
+
+const HEADERS = ["id","category","name","price","emoji","tag","description","img"];
+
+function sheet_() {
+  return SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+}
+
+function json_(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function getProducts_() {
+  const rows = sheet_().getDataRange().getValues();
+  const head = rows[0].map(h => String(h).trim().toLowerCase());
+  return rows.slice(1)
+    .filter(r => String(r[head.indexOf("name")] || "").trim() !== "")
+    .map(r => {
+      const o = {};
+      HEADERS.forEach(h => { const i = head.indexOf(h); o[h] = i >= 0 ? r[i] : ""; });
+      return o;
+    });
+}
+
+function doGet(e) {
+  const p = (e && e.parameter) || {};
+  if (p.key !== SECRET_KEY) return json_({ error: "unauthorized" });
+  return json_({ ok: true, products: getProducts_() });
+}
+
+function doPost(e) {
+  let data;
+  try { data = JSON.parse(e.postData.contents); }
+  catch (err) { return json_({ error: "bad request" }); }
+  if (data.key !== SECRET_KEY) return json_({ error: "unauthorized" });
+
+  const sh = sheet_();
+  const rows = sh.getDataRange().getValues();
+
+  if (data.action === "add") {
+    const maxId = Math.max(0, ...rows.slice(1).map(r => Number(r[0]) || 0));
+    const p = data.product || {};
+    sh.appendRow([maxId + 1, p.category || "Other", p.name || "", Number(p.price) || 0,
+                  p.emoji || "🐠", p.tag || "", p.description || "", p.img || ""]);
+    return json_({ ok: true, id: maxId + 1 });
+  }
+
+  // locate the row for update/delete by id
+  let rowIndex = -1;
+  for (let i = 1; i < rows.length; i++) {
+    if (String(rows[i][0]) === String(data.id)) { rowIndex = i + 1; break; }
+  }
+  if (rowIndex < 0) return json_({ error: "product not found" });
+
+  if (data.action === "delete") {
+    sh.deleteRow(rowIndex);
+    return json_({ ok: true });
+  }
+
+  if (data.action === "update") {
+    const p = data.product || {};
+    sh.getRange(rowIndex, 1, 1, 8).setValues([[ data.id, p.category || "Other",
+      p.name || "", Number(p.price) || 0, p.emoji || "🐠", p.tag || "",
+      p.description || "", p.img || "" ]]);
+    return json_({ ok: true });
+  }
+
+  return json_({ error: "unknown action" });
+}

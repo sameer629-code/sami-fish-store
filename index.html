@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sami Fishes &amp; Aquariums — Premium Fish &amp; Aquarium Store, Lahore</title>
+<meta name="description" content="Premium quality aquariums and ornamental fish. Aquarium accessories, filters, plants, and lights. Located in Lahore, Pakistan. Order on WhatsApp — Cash on Delivery available.">
+<meta property="og:title" content="Sami Fishes & Aquariums — Lahore">
+<meta property="og:description" content="Premium ornamental fish, aquariums, filters, plants & lights. Order on WhatsApp — COD, bank transfer, Easypaisa/JazzCash.">
+<meta property="og:type" content="website">
+<style>
+  /* ============================================================
+     SAMI FISHES & AQUARIUMS — Online Store
+     Theme: deep aquatic blue + goldfish orange (from your logo)
+     ============================================================ */
+  :root{
+    --deep:#06182e;
+    --deep2:#0a2342;
+    --card:#0e2d52;
+    --card2:#123761;
+    --line:rgba(120,180,255,.14);
+    --text:#eaf4ff;
+    --muted:#9db8d8;
+    --accent:#ff9f43;
+    --accent2:#ffb96b;
+    --aqua:#37c8f0;
+    --green:#39d98a;
+    --radius:16px;
+    font-size:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+    background:linear-gradient(180deg,var(--deep) 0%,var(--deep2) 60%,#071c33 100%);
+    color:var(--text);
+    min-height:100vh;
+  }
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(6,24,46,.9);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1200px;margin:0 auto;padding:.7rem 1.2rem;
+    display:flex;align-items:center;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text)}
+  .brand .logo{
+    width:44px;height:44px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#2ea7e0,#0a3a6b 70%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;flex-shrink:0;
+    box-shadow:0 0 0 2px rgba(55,200,240,.35), 0 4px 14px rgba(0,0,0,.4);
+  }
+  .brand h1{font-size:1.05rem;letter-spacing:.5px;line-height:1.15}
+  .brand small{display:block;color:var(--accent);font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
+  .nav-links{margin-left:auto;display:flex;gap:1.2rem;align-items:center}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .cart-btn{
+    position:relative;background:var(--accent);color:#06182e;border:none;
+    padding:.55rem 1.1rem;border-radius:999px;font-weight:700;font-size:.92rem;
+    cursor:pointer;display:flex;align-items:center;gap:.45rem;transition:transform .15s, background .2s;
+  }
+  .cart-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+  .cart-count{
+    background:#06182e;color:var(--accent);border-radius:999px;
+    min-width:1.35rem;height:1.35rem;display:flex;align-items:center;justify-content:center;
+    font-size:.75rem;font-weight:800;padding:0 .3rem;
+  }
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:1200px;margin:0 auto;padding:3.5rem 1.2rem 2.5rem;
+    display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;
+  }
+  .hero h2{font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.15;margin-bottom:1rem}
+  .hero h2 span{color:var(--accent)}
+  .hero p{color:var(--muted);font-size:1.05rem;line-height:1.65;margin-bottom:1.6rem;max-width:34rem}
+  .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.8rem 1.5rem;border-radius:999px;font-weight:700;font-size:.98rem;
+    text-decoration:none;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#ff8c1a);color:#081a30;box-shadow:0 6px 20px rgba(255,159,67,.35)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--aqua);color:var(--aqua)}
+  .btn-wa{background:#25d366;color:#06301b}
+  .btn-wa:hover{transform:translateY(-2px)}
+  .hero-tank{
+    position:relative;height:300px;border-radius:24px;overflow:hidden;
+    background:linear-gradient(180deg,#0b3e70 0%,#04182e 100%);
+    border:1px solid var(--line);
+    box-shadow:inset 0 0 60px rgba(55,200,240,.15), 0 20px 50px rgba(0,0,0,.45);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .bubble{position:absolute;bottom:-30px;border-radius:50%;background:rgba(160,220,255,.18);animation:rise linear infinite}
+  @keyframes rise{to{transform:translateY(-380px);opacity:0}}
+  .swim{position:absolute;font-size:2.2rem;animation:swim linear infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,.4))}
+  @keyframes swim{
+    0%{transform:translateX(-70px) scaleX(1)}
+    49%{transform:translateX(330px) scaleX(1)}
+    50%{transform:translateX(330px) scaleX(-1)}
+    99%{transform:translateX(-70px) scaleX(-1)}
+    100%{transform:translateX(-70px) scaleX(1)}
+  }
+  .badges{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem}
+  .badge{
+    display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted);
+    background:rgba(255,255,255,.04);border:1px solid var(--line);
+    padding:.5rem .9rem;border-radius:999px;
+  }
+  /* ---------- Sections ---------- */
+  section{max-width:1200px;margin:0 auto;padding:2.5rem 1.2rem}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+  .sec-head h3{font-size:1.6rem}
+  .sec-head p{color:var(--muted);font-size:.95rem}
+  /* ---------- Category filter ---------- */
+  .cats{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.6rem}
+  .cat{
+    background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted);
+    padding:.5rem 1.1rem;border-radius:999px;font-size:.9rem;cursor:pointer;transition:all .2s;
+  }
+  .cat:hover{color:var(--text);border-color:var(--aqua)}
+  .cat.active{background:var(--aqua);color:#04263b;border-color:var(--aqua);font-weight:700}
+  /* ---------- Product grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+  .card{
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .18s, box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+  .thumb{
+    height:150px;display:flex;align-items:center;justify-content:center;
+    font-size:3.6rem;position:relative;
+    background:radial-gradient(circle at 50% 120%,rgba(55,200,240,.28),transparent 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .tag{
+    position:absolute;top:.7rem;left:.7rem;font-size:.68rem;font-weight:700;
+    letter-spacing:.8px;text-transform:uppercase;color:#04263b;background:var(--aqua);
+    padding:.22rem .6rem;border-radius:999px;
+  }
+  .tag.hot{background:var(--accent)}
+  .card-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+  .card-body h4{font-size:1.02rem}
+  .card-body .desc{color:var(--muted);font-size:.83rem;line-height:1.45;flex:1}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem}
+  .price{font-size:1.08rem;font-weight:800;color:var(--accent)}
+  .price small{color:var(--muted);font-weight:400;font-size:.72rem}
+  .add-btn{
+    background:rgba(55,200,240,.15);color:var(--aqua);border:1px solid rgba(55,200,240,.4);
+    padding:.45rem .95rem;border-radius:999px;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;
+  }
+  .add-btn:hover{background:var(--aqua);color:#04263b}
+  /* ---------- Info strip ---------- */
+  .strip{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;
+  }
+  .strip .item{
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--radius);
+    padding:1.2rem;display:flex;gap:.9rem;align-items:flex-start;
+  }
+  .strip .item .ico{font-size:1.7rem}
+  .strip .item h5{margin-bottom:.25rem;font-size:.98rem}
+  .strip .item p{color:var(--muted);font-size:.85rem;line-height:1.5}
+  /* ---------- About / contact ---------- */
+  .about{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start;
+  }
+  .about p{color:var(--muted);line-height:1.7;margin-bottom:1rem}
+  .contact-card{
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;
+  }
+  .contact-card h4{margin-bottom:1rem}
+  .contact-row{display:flex;align-items:center;gap:.8rem;padding:.55rem 0;color:var(--muted);font-size:.95rem}
+  .contact-row a{color:var(--aqua);text-decoration:none}
+  .contact-row a:hover{text-decoration:underline}
+  /* ---------- Cart drawer ---------- */
+  .overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90;
+  }
+  .overlay.open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;top:0;right:-420px;width:min(400px,95vw);height:100vh;z-index:100;
+    background:#0b2a4d;border-left:1px solid var(--line);
+    display:flex;flex-direction:column;transition:right .3s ease;
+  }
+  .drawer.open{right:0}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.2rem;border-bottom:1px solid var(--line)}
+  .drawer-head h4{font-size:1.15rem}
+  .close-x{background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer}
+  .drawer-items{flex:1;overflow-y:auto;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.9rem}
+  .empty-msg{color:var(--muted);text-align:center;margin-top:3rem;font-size:.95rem;line-height:1.6}
+  .ci{display:flex;gap:.8rem;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:.7rem}
+  .ci .em{font-size:1.8rem}
+  .ci .inf{flex:1}
+  .ci .inf h6{font-size:.9rem;margin-bottom:.15rem}
+  .ci .inf span{color:var(--accent);font-size:.85rem;font-weight:700}
+  .qty{display:flex;align-items:center;gap:.5rem}
+  .qty button{
+    width:1.6rem;height:1.6rem;border-radius:6px;border:1px solid var(--line);
+    background:rgba(255,255,255,.06);color:var(--text);cursor:pointer;font-weight:700;
+  }
+  .qty span{min-width:1.2rem;text-align:center;font-weight:700;font-size:.9rem}
+  .drawer-foot{border-top:1px solid var(--line);padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+  .total-row{display:flex;justify-content:space-between;font-size:1.05rem}
+  .total-row b{color:var(--accent);font-size:1.2rem}
+  .note{color:var(--muted);font-size:.78rem;line-height:1.5}
+  .checkout-btn{
+    background:#25d366;color:#06301b;border:none;padding:.9rem;border-radius:12px;
+    font-weight:800;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;
+    transition:transform .15s;
+  }
+  .checkout-btn:hover{transform:translateY(-1px)}
+  .checkout-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);margin-top:3rem}
+  .foot{
+    max-width:1200px;margin:0 auto;padding:2rem 1.2rem;
+    display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
+    color:var(--muted);font-size:.85rem;
+  }
+  .socials{display:flex;gap:.8rem}
+  .socials a{
+    display:flex;align-items:center;gap:.4rem;color:var(--muted);text-decoration:none;
+    border:1px solid var(--line);padding:.45rem .9rem;border-radius:999px;font-size:.85rem;transition:all .2s;
+  }
+  .socials a:hover{color:var(--text);border-color:var(--aqua)}
+  /* ---------- Toast ---------- */
+  .toast{
+    position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);
+    background:var(--green);color:#03301a;font-weight:700;padding:.7rem 1.4rem;border-radius:999px;
+    transition:transform .3s;z-index:200;font-size:.92rem;box-shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  /* ---------- Responsive ---------- */
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;padding-top:2.2rem}
+    .hero-tank{height:220px}
+    .about{grid-template-columns:1fr}
+    .nav-links a:not(.cart-wrap){display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="brand">
+      <div class="logo">🐠</div>
+      <h1>Sami Fishes &amp; Aquariums<small>Lahore · Pakistan</small></h1>
+    </a>
+    <nav class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#why">Why Us</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="cart-btn" onclick="toggleCart(true)">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div>
+    <h2>Premium Quality <span>Ornamental Fish</span> &amp; Aquariums</h2>
+    <p>From stunning Bettas to complete aquarium setups — filters, plants, lights and everything your underwater world needs. Trusted by hobbyists across Lahore.</p>
+    <div class="hero-cta">
+      <a href="#shop" class="btn btn-primary">🛍️ Shop Now</a>
+      <a href="#" id="heroWa" class="btn btn-wa">💬 Order on WhatsApp</a>
+    </div>
+    <div class="badges">
+      <div class="badge">✅ Healthy, quarantined fish</div>
+      <div class="badge">🚚 Delivery across Lahore</div>
+      <div class="badge">💵 Cash on Delivery</div>
+    </div>
+  </div>
+  <div class="hero-tank" id="tank">
+    <span class="swim" style="top:18%;animation-duration:14s">🐠</span>
+    <span class="swim" style="top:45%;animation-duration:19s;animation-delay:-6s">🐟</span>
+    <span class="swim" style="top:68%;animation-duration:11s;animation-delay:-3s">🐡</span>
+    <span style="position:absolute;bottom:8px;left:20px;font-size:1.6rem">🌿</span>
+    <span style="position:absolute;bottom:8px;right:30px;font-size:1.9rem">🪸</span>
+    <span style="position:absolute;bottom:6px;left:45%;font-size:1.4rem">🌱</span>
+  </div>
+</div>
+
+<section id="shop">
+  <div class="sec-head">
+    <h3>🛍️ Our Products</h3>
+    <p>Prices in PKR — tap “Add” then checkout via WhatsApp</p>
+  </div>
+  <div class="cats" id="cats"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="why">
+  <div class="sec-head"><h3>⭐ Why Sami Fishes?</h3></div>
+  <div class="strip">
+    <div class="item"><div class="ico">🐟</div><div><h5>Healthy Livestock</h5><p>Every fish is quarantined and feeding well before it reaches your tank.</p></div></div>
+    <div class="item"><div class="ico">📦</div><div><h5>Safe Packing</h5><p>Oxygen-bag packing for live fish so your order arrives stress-free.</p></div></div>
+    <div class="item"><div class="ico">🚚</div><div><h5>Fast Local Delivery</h5><p>Same-day / next-day delivery across Lahore. Cash on Delivery available.</p></div></div>
+    <div class="item"><div class="ico">🧠</div><div><h5>Expert Advice</h5><p>Free guidance on tank setup, water care and fish compatibility — just ask.</p></div></div>
+  </div>
+</section>
+
+<section id="pay">
+  <div class="sec-head"><h3>💳 How to Pay</h3><p>Simple, safe options for every customer</p></div>
+  <div class="strip">
+    <div class="item"><div class="ico">💵</div><div><h5>Cash on Delivery</h5><p>Pay when your order arrives at your door — available across Lahore.</p></div></div>
+    <div class="item"><div class="ico">🏦</div><div><h5>Bank Transfer / Raast</h5><p>Allied Bank — instant transfer from any bank app. Full account details are included automatically in your WhatsApp order.</p></div></div>
+    <div class="item"><div class="ico">📱</div><div><h5>JazzCash</h5><p>Send to <b>0333 5373911</b> and share the payment screenshot on WhatsApp.</p></div></div>
+  </div>
+</section>
+
+<section id="insta">
+  <div class="sec-head"><h3>📷 Fresh From Our Instagram</h3><p>New arrivals are always posted on Instagram first</p></div>
+  <div id="instaFeed"></div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <div class="sec-head"><h3>🐠 About Us</h3></div>
+      <p><b>Sami Fishes &amp; Aquariums</b> is a Lahore-based aquarium business dealing in premium quality ornamental fish, aquariums, and complete aquascaping supplies — filters, plants, lights and accessories.</p>
+      <p>What started as a passion for fishkeeping is now a growing store serving hobbyists across the city. Follow our journey on Instagram and Facebook to see new arrivals first — from the <i>Beauty of Betta</i> collection to full tank builds.</p>
+      <p>Visit our socials, message us anytime, and let us help you build your dream aquarium.</p>
+    </div>
+    <div class="contact-card" id="contact">
+      <h4>📞 Contact &amp; Orders</h4>
+      <div class="contact-row">💬 <a href="#" class="wa-link">WhatsApp: 0336 7889788</a></div>
+      <div class="contact-row">📷 <a href="https://www.instagram.com/sami_fishes_aquariums/" target="_blank" rel="noopener">@sami_fishes_aquariums</a></div>
+      <div class="contact-row">👥 <a href="https://www.facebook.com/groups/848514917098911/" target="_blank" rel="noopener">Facebook Community Group</a></div>
+      <div class="contact-row">📍 Lahore, Pakistan</div>
+      <div class="contact-row">💵 Cash on Delivery · Bank Transfer (Allied Bank) · JazzCash 0333 5373911</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>© <span id="yr"></span> Sami Fishes &amp; Aquariums — Lahore, Pakistan</div>
+    <div class="socials">
+      <a href="https://www.instagram.com/sami_fishes_aquariums/" target="_blank" rel="noopener">📷 Instagram</a>
+      <a href="https://www.facebook.com/groups/848514917098911/" target="_blank" rel="noopener">👥 Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart drawer -->
+<div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h4>🛒 Your Cart</h4>
+    <button class="close-x" onclick="toggleCart(false)">✕</button>
+  </div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Total</span><b id="cartTotal">Rs 0</b></div>
+    <p class="note">Checkout opens WhatsApp with your order details pre-typed. Pay by Cash on Delivery, bank transfer, Easypaisa or JazzCash — we'll confirm on chat.</p>
+    <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>💬 Checkout on WhatsApp</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast">Added to cart ✓</div>
+
+<script>
+/* ================================================================
+   ⚙️ STORE SETTINGS — EDIT THESE
+   ================================================================ */
+const WHATSAPP_NUMBER = "923367889788"; // WhatsApp number: country code first, no + or spaces
+const CURRENCY = "Rs";
+
+/* 🏦 Bank details shown to customers in the WhatsApp order message.
+   Get your IBAN from your bank app. Also set up a FREE Raast ID
+   (linked to 0336 7889788) in your bank app so customers can pay
+   instantly using just your phone number. */
+const BANK = {
+  bankName:     "Allied Bank Limited",
+  accountTitle: "Asma Haider Qureshi",
+  iban:         "PK11ABPA0010086958540010",
+  jazzcash:     "0333 5373911"
+};
+
+/* 📊 ADMIN PANEL — Google Sheets (optional but recommended)
+   Manage products from your phone without touching this file:
+   1. Make a Google Sheet with headers: id, category, name, price, emoji, tag, description, img
+   2. File → Share → Publish to web → select the sheet → CSV → Publish
+   3. Paste the link below between the quotes.
+   The website will then always load products from your Sheet.
+   Leave empty ("") to use the built-in product list below. */
+const SHEET_CSV_URL = "";
+
+/* 📷 Instagram feed (optional): create a free feed widget at
+   lightwidget.com or behold.so for @sami_fishes_aquariums and paste
+   the embed code between the backticks to show your latest posts. */
+const INSTAGRAM_EMBED_HTML = ``;
+
+/* ================================================================
+   🐟 PRODUCT CATALOG — add / edit / remove products here.
+   emoji = picture shown on the card (replace with real photos later:
+   set img:"photos/betta.jpg" and it will be used instead of emoji)
+   ================================================================ */
+const PRODUCTS = [
+  // --- Live Fish ---
+  {id:1,  cat:"Live Fish", name:"Halfmoon Betta (Male)",   price:1500,  emoji:"🐠", tag:"Popular", desc:"Show-quality halfmoon betta in vibrant colors — the star of our Beauty of Betta collection."},
+  {id:2,  cat:"Live Fish", name:"Plakat Betta (Male)",     price:1200,  emoji:"🐟", desc:"Hardy, active plakat betta. Great for beginners and breeders alike."},
+  {id:3,  cat:"Live Fish", name:"Oranda Goldfish (Pair)",  price:2500,  emoji:"🐡", desc:"Classic wen-capped orandas, healthy and feeding well. Approx 2.5–3 inch."},
+  {id:4,  cat:"Live Fish", name:"Fancy Guppy (Trio)",      price:900,   emoji:"🐠", desc:"1 male + 2 females, assorted premium strains. Easy community fish."},
+  {id:5,  cat:"Live Fish", name:"Angelfish (Pair)",        price:1800,  emoji:"🐟", desc:"Graceful freshwater angels — assorted marble, silver and koi patterns."},
+  {id:6,  cat:"Live Fish", name:"Neon Tetra (10 pcs)",     price:1500,  emoji:"✨", desc:"Schooling beauties that light up any planted tank."},
+  {id:7,  cat:"Live Fish", name:"Oscar (Tiger / Albino)",  price:1600,  emoji:"🐡", tag:"Hot", desc:"Personality-packed cichlid, approx 3 inch. Tiger or albino."},
+  {id:8,  cat:"Live Fish", name:"Koi Carp (Assorted)",     price:2000,  emoji:"🎏", desc:"Pond-ready koi in assorted colors, approx 4–5 inch."},
+  // --- Aquariums & Tanks ---
+  {id:9,  cat:"Aquariums", name:"2ft Aquarium Set",        price:8500,  emoji:"🛁", desc:"24×12×15 inch glass tank with hood, light and gravel — starter ready."},
+  {id:10, cat:"Aquariums", name:"3ft Aquarium Set",        price:15500, emoji:"🛁", tag:"Popular", desc:"36 inch tank with wooden-finish stand option, hood and LED light."},
+  {id:11, cat:"Aquariums", name:"4ft Complete Setup",      price:26000, emoji:"🏞️", desc:"48 inch showpiece tank — includes filter, light and decoration package."},
+  {id:12, cat:"Aquariums", name:"Nano / Betta Tank",       price:3500,  emoji:"🫙", desc:"Compact desktop tank, perfect home for a single betta."},
+  // --- Filters & Equipment ---
+  {id:13, cat:"Equipment", name:"Internal Filter",         price:1400,  emoji:"⚙️", tag:"Restocked", desc:"Multi-function internal filter with spray bar — as featured on our page."},
+  {id:14, cat:"Equipment", name:"Top Filter (with media)", price:2200,  emoji:"🔧", desc:"3-chamber top filter with bio media for crystal-clear water."},
+  {id:15, cat:"Equipment", name:"Air Pump (Double Outlet)",price:950,   emoji:"💨", desc:"Silent double-outlet air pump with valve and airline."},
+  {id:16, cat:"Equipment", name:"Aquarium Heater 100W",    price:1100,  emoji:"🌡️", desc:"Auto-thermostat heater — essential for bettas and tropicals in winter."},
+  {id:17, cat:"Equipment", name:"RGB LED Light",           price:1800,  emoji:"💡", desc:"Bracket-mount RGB LED bar, multiple color modes."},
+  // --- Plants & Decor ---
+  {id:18, cat:"Plants & Decor", name:"Live Plant Bundle",  price:1200,  emoji:"🌿", desc:"5 assorted easy live plants — anubias, vallisneria, hygrophila and more."},
+  {id:19, cat:"Plants & Decor", name:"Driftwood Piece",    price:900,   emoji:"🪵", desc:"Natural driftwood, cured and tank-ready. Assorted shapes."},
+  {id:20, cat:"Plants & Decor", name:"Colored Gravel 2kg", price:450,   emoji:"🪨", desc:"Washed aquarium gravel in natural and colored mixes."},
+  {id:21, cat:"Plants & Decor", name:"Decoration Ornament",price:750,   emoji:"🏰", desc:"Castles, caves and shipwrecks — hiding spots your fish will love."},
+  // --- Food & Care ---
+  {id:22, cat:"Food & Care", name:"Premium Fish Food 100g",price:550,   emoji:"🍤", desc:"High-protein floating pellets for tropical fish and goldfish."},
+  {id:23, cat:"Food & Care", name:"Betta Food 30g",        price:400,   emoji:"🍚", desc:"Color-enhancing micro pellets specially for bettas."},
+  {id:24, cat:"Food & Care", name:"Anti-Chlorine 120ml",   price:350,   emoji:"🧪", desc:"Makes tap water safe instantly — a must for every water change."},
+  {id:25, cat:"Food & Care", name:"Aquarium Salt 500g",    price:300,   emoji:"🧂", desc:"General tonic and disease prevention for freshwater tanks."},
+];
+
+/* ================================================================
+   Store logic (no edits needed below)
+   ================================================================ */
+let cats = ["All", ...new Set(PRODUCTS.map(p=>p.cat))];
+let activeCat = "All";
+const cart = {}; // id -> qty
+
+const fmt = n => CURRENCY + " " + n.toLocaleString("en-PK");
+
+/* Accepts normal image links AND Google Drive share links.
+   A pasted Drive link like https://drive.google.com/file/d/FILE_ID/view
+   is converted automatically into a direct image URL. */
+function imgUrl(u){
+  u = String(u||"").trim();
+  if(!u) return "";
+  const m = u.match(/drive\.google\.com\/file\/d\/([-\w]{20,})/) || u.match(/[?&]id=([-\w]{20,})/);
+  if(m) return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w800";
+  return u;
+}
+const waHref = msg => "https://wa.me/" + WHATSAPP_NUMBER + (msg ? "?text=" + encodeURIComponent(msg) : "");
+
+function renderCats(){
+  document.getElementById("cats").innerHTML = cats.map(c =>
+    `<button class="cat ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c}</button>`).join("");
+}
+function setCat(c){ activeCat = c; renderCats(); renderGrid(); }
+
+function renderGrid(){
+  const list = PRODUCTS.filter(p => activeCat==="All" || p.cat===activeCat);
+  document.getElementById("grid").innerHTML = list.map(p => `
+    <div class="card">
+      <div class="thumb">
+        ${p.tag ? `<span class="tag ${p.tag==='Hot'?'hot':''}">${p.tag}</span>` : ""}
+        ${p.img ? `<img src="${imgUrl(p.img)}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.outerHTML='${p.emoji||"🐠"}'">` : p.emoji}
+      </div>
+      <div class="card-body">
+        <h4>${p.name}</h4>
+        <p class="desc">${p.desc}</p>
+        <div class="price-row">
+          <div class="price">${fmt(p.price)}</div>
+          <button class="add-btn" onclick="addToCart(${p.id})">+ Add</button>
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  updateCartUI();
+  const t = document.getElementById("toast");
+  t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove("show"), 1400);
+}
+function changeQty(id, d){
+  cart[id] = (cart[id]||0) + d;
+  if(cart[id] <= 0) delete cart[id];
+  updateCartUI();
+}
+function cartEntries(){ return Object.entries(cart).map(([id,qty]) => ({p:PRODUCTS.find(x=>x.id==id), qty})); }
+
+function updateCartUI(){
+  const items = cartEntries();
+  const count = items.reduce((s,i)=>s+i.qty,0);
+  const total = items.reduce((s,i)=>s+i.qty*i.p.price,0);
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartTotal").textContent = fmt(total);
+  document.getElementById("checkoutBtn").disabled = count===0;
+  document.getElementById("cartItems").innerHTML = count===0
+    ? `<p class="empty-msg">Your cart is empty.<br>Add some fish friends! 🐠</p>`
+    : items.map(({p,qty}) => `
+      <div class="ci">
+        <div class="em">${p.emoji}</div>
+        <div class="inf"><h6>${p.name}</h6><span>${fmt(p.price)}</span></div>
+        <div class="qty">
+          <button onclick="changeQty(${p.id},-1)">−</button><span>${qty}</span><button onclick="changeQty(${p.id},1)">+</button>
+        </div>
+      </div>`).join("");
+}
+
+function toggleCart(open){
+  document.getElementById("drawer").classList.toggle("open", open);
+  document.getElementById("overlay").classList.toggle("open", open);
+}
+
+function checkout(){
+  const items = cartEntries();
+  if(!items.length) return;
+  const total = items.reduce((s,i)=>s+i.qty*i.p.price,0);
+  let msg = "🐠 *New Order — Sami Fishes & Aquariums*\n\n";
+  items.forEach(({p,qty}) => { msg += `• ${p.name} × ${qty} — ${fmt(p.price*qty)}\n`; });
+  msg += `\n*Total: ${fmt(total)}*\n\nName: \nDelivery address: \nPayment (choose one):\n`;
+  msg += `1️⃣ Cash on Delivery\n`;
+  msg += `2️⃣ Bank Transfer / Raast — ${BANK.bankName} | ${BANK.accountTitle} | IBAN: ${BANK.iban}\n`;
+  msg += `3️⃣ JazzCash — ${BANK.jazzcash}\n(for transfers, please share the payment screenshot)`;
+  window.open(waHref(msg), "_blank");
+}
+
+/* wire up static WhatsApp links */
+document.getElementById("heroWa").href = waHref("Hi! I'd like to place an order 🐠");
+document.querySelectorAll(".wa-link").forEach(a => a.href = waHref(""));
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* bubbles in hero tank */
+const tank = document.getElementById("tank");
+for(let i=0;i<14;i++){
+  const b = document.createElement("span");
+  b.className = "bubble";
+  const s = 4 + Math.random()*10;
+  b.style.width = b.style.height = s+"px";
+  b.style.left = (5+Math.random()*90)+"%";
+  b.style.animationDuration = (4+Math.random()*6)+"s";
+  b.style.animationDelay = (-Math.random()*6)+"s";
+  tank.appendChild(b);
+}
+
+/* Instagram feed section */
+(function(){
+  const box = document.getElementById("instaFeed");
+  if(INSTAGRAM_EMBED_HTML.trim()){
+    box.innerHTML = INSTAGRAM_EMBED_HTML;
+  } else {
+    box.innerHTML = `
+      <div style="background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);
+                  border-radius:var(--radius);padding:2rem;text-align:center">
+        <div style="font-size:2.4rem;margin-bottom:.6rem">📷</div>
+        <p style="color:var(--muted);margin-bottom:1.1rem">See our latest fish, tanks and the <b>Beauty of Betta</b> collection — new stock is posted on Instagram first.</p>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.instagram.com/sami_fishes_aquariums/">Follow @sami_fishes_aquariums</a>
+      </div>`;
+  }
+})();
+
+/* Google Sheet product loader (admin panel) */
+function parseCSV(t){
+  const rows=[];let row=[],cur="",q=false;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=c; }
+    else if(c==='"') q=true;
+    else if(c===','){row.push(cur);cur="";}
+    else if(c==='\n'){row.push(cur);rows.push(row);row=[];cur="";}
+    else if(c!=='\r') cur+=c;
+  }
+  if(cur!==""||row.length){row.push(cur);rows.push(row);}
+  return rows;
+}
+async function loadFromSheet(){
+  if(!SHEET_CSV_URL) return;
+  try{
+    const res = await fetch(SHEET_CSV_URL, {cache:"no-store"});
+    if(!res.ok) throw new Error(res.status);
+    const rows = parseCSV(await res.text());
+    const head = rows.shift().map(h=>h.trim().toLowerCase());
+    const items = rows.map((r,i)=>{
+      const o={}; head.forEach((h,j)=>o[h]=(r[j]||"").trim());
+      return {id:Number(o.id)||i+1, cat:o.category||"Other", name:o.name||"",
+              price:Number(String(o.price).replace(/[^0-9.]/g,""))||0,
+              emoji:o.emoji||"🐠", tag:o.tag||"", desc:o.description||"", img:o.img||""};
+    }).filter(p=>p.name);
+    if(items.length){
+      PRODUCTS.length=0; PRODUCTS.push(...items);
+      cats=["All",...new Set(PRODUCTS.map(p=>p.cat))];
+      if(!cats.includes(activeCat)) activeCat="All";
+      renderCats(); renderGrid(); updateCartUI();
+    }
+  }catch(e){ console.warn("Product sheet not loaded, using built-in catalog.", e); }
+}
+
+renderCats(); renderGrid(); updateCartUI(); loadFromSheet();
+</script>
+</body>
+</html>
